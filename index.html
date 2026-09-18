@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Popular Software - SHM DigiTech Laboratory</title>
+    <title>Popular Software </title>
     
-    <!-- Google Fonts for English and Bengali -->
+    <!-- Google Fonts for English and Bengali (Vintage Theme) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;800&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;600&family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
     
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -22,8 +22,14 @@
         }
 
         body {
-            background-color: #030a16;
-            color: #ffffff;
+            /* Antique Parchment Background */
+            background-color: #f4ecd8;
+            background-image: 
+                radial-gradient(#d5c5b1 1px, transparent 1px),
+                radial-gradient(#d5c5b1 1px, transparent 1px);
+            background-position: 0 0, 25px 25px;
+            background-size: 50px 50px;
+            color: #3e2723;
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
@@ -31,27 +37,18 @@
             flex-direction: column;
         }
 
-        /* --- Informatic Background Animation --- */
-        #lab-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            background: radial-gradient(circle at center, #0a192f 0%, #030a16 100%);
-        }
-
+        /* --- Antique Floating Words Animation --- */
         .floating-tech-word {
             position: absolute;
-            color: rgba(0, 255, 204, 0.15);
-            font-family: 'Courier New', Courier, monospace;
+            color: rgba(94, 64, 55, 0.08);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
             font-weight: bold;
             pointer-events: none;
             user-select: none;
             white-space: nowrap;
-            text-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
             animation: floatUp linear forwards;
+            z-index: 0;
         }
 
         @keyframes floatUp {
@@ -64,7 +61,7 @@
         /* --- Main Layout --- */
         .container {
             flex: 1;
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
             z-index: 10;
@@ -77,233 +74,184 @@
             text-align: center;
             margin-bottom: 60px;
             margin-top: 20px;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            display: block;
+            width: 150px;
+            height: 3px;
+            background: #5d4037;
+            margin: 30px auto 0;
+            border-radius: 2px;
         }
 
         .main-heading {
-            font-size: 3rem;
-            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            background: linear-gradient(90deg, #00f2fe, #4facfe, #00f2fe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 30px;
-            text-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+            letter-spacing: 3px;
+            color: #3e2723;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
-        /* --- 3D Crystal Glass & Blinking Text --- */
+        /* --- Antique Intro Ribbon --- */
         .intro-text {
-            font-family: 'Hind Siliguri', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            font-style: italic;
+            letter-spacing: 1px;
+            color: #4e342e;
             display: inline-block;
-            padding: 15px 40px;
-            border-radius: 50px;
-            
-            /* Crystal Glass Effect */
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            
-            /* 3D Glass Borders */
-            border-top: 1px solid rgba(255, 255, 255, 0.5);
-            border-left: 1px solid rgba(255, 255, 255, 0.5);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            
-            /* Box Depth Shadow */
-            box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.5), 
-                inset 0 0 20px rgba(0, 242, 254, 0.15);
-            
-            /* Apply Blink & Glow Animation */
-            animation: text3DGlowBlink 1.2s infinite alternate ease-in-out;
+            padding: 10px 30px;
+            border-top: 2px solid #5d4037;
+            border-bottom: 2px solid #5d4037;
+            background-color: transparent;
         }
 
-        /* --- HD 3D Text Glow & Blink Keyframes --- */
-        @keyframes text3DGlowBlink {
-            0% {
-                text-shadow: 
-                    0 1px 0 #074759,
-                    0 2px 0 #053340,
-                    0 3px 0 #032029,
-                    0 0 10px rgba(0, 242, 254, 0.3);
-                color: #b3e5fc;
-                box-shadow: 
-                    0 10px 25px rgba(0, 0, 0, 0.5), 
-                    inset 0 0 10px rgba(0, 242, 254, 0.1);
-            }
-            100% {
-                text-shadow: 
-                    0 1px 0 #00f2fe,
-                    0 2px 0 #00c6d9,
-                    0 3px 0 #0099a8,
-                    0 4px 5px rgba(0, 0, 0, 0.5),
-                    0 0 20px rgba(0, 242, 254, 1),
-                    0 0 40px rgba(0, 242, 254, 0.8),
-                    0 0 60px rgba(0, 242, 254, 0.6);
-                color: #ffffff;
-                box-shadow: 
-                    0 15px 35px rgba(0, 0, 0, 0.6), 
-                    inset 0 0 25px rgba(0, 242, 254, 0.4),
-                    0 0 20px rgba(0, 242, 254, 0.3);
-            }
-        }
-
-        /* --- Grid & Glassmorphism Cards --- */
+        /* --- Grid & Antique Cards --- */
         .app-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 40px;
-            margin-top: 50px;
+            margin-top: 40px;
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(0, 242, 254, 0.15);
-            border-radius: 25px;
+            background: #fbf7ed;
+            border: 1px solid #d7ccc8;
+            border-radius: 8px;
             padding: 40px 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            aspect-ratio: 1 / 1; 
+            aspect-ratio: auto;
+            min-height: 350px;
             text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.02);
+            transition: all 0.4s ease;
+            box-shadow: 5px 5px 15px rgba(94, 64, 55, 0.1);
             position: relative;
-            overflow: hidden;
             text-decoration: none;
-            color: #fff;
+            color: #3e2723;
         }
 
-        .glass-card::before {
+        /* Decorative Vintage Corner Accents */
+        .glass-card::before, .glass-card::after {
             content: '';
             position: absolute;
-            top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
-            transform: skewX(-20deg);
-            transition: 0.5s;
+            width: 15px;
+            height: 15px;
+            border: 2px solid #8d6e63;
+            transition: 0.3s ease;
         }
+        .glass-card::before { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+        .glass-card::after { bottom: 10px; right: 10px; border-left: none; border-top: none; }
 
         .glass-card:hover {
-            transform: translateY(-15px);
-            border-color: rgba(0, 242, 254, 0.6);
-            box-shadow: 0 20px 50px rgba(0, 242, 254, 0.2), inset 0 0 30px rgba(0, 242, 254, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 8px 8px 20px rgba(94, 64, 55, 0.2);
+            border-color: #8d6e63;
         }
 
-        .glass-card:hover::before {
-            left: 150%;
-        }
+        .glass-card:hover::before { top: 5px; left: 5px; }
+        .glass-card:hover::after { bottom: 5px; right: 5px; }
 
         .card-logo {
-            height: 80px;
+            height: 70px;
             max-width: 100%;
             object-fit: contain;
             margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+            /* Sepia tone filter for images to match theme */
+            filter: sepia(0.6) hue-rotate(-15deg) contrast(1.1) brightness(0.9);
         }
 
         .card-icon {
-            font-size: 4rem;
-            color: #00f2fe;
+            font-size: 3.5rem;
+            color: #795548;
             margin-bottom: 20px;
-            filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.6));
         }
 
         .card-title {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: #00f2fe;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3e2723;
             margin-bottom: 15px;
         }
 
         .card-desc {
             font-size: 0.95rem;
-            color: #a0aec0;
+            color: #5d4037;
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             flex-grow: 1;
             display: flex;
             align-items: center;
         }
 
         .action-btn {
-            background: linear-gradient(90deg, #00f2fe, #4facfe);
-            color: #fff;
-            padding: 12px 30px;
-            border-radius: 50px;
+            background: #5d4037;
+            color: #f4ecd8;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-family: 'Playfair Display', serif;
             font-weight: 600;
             font-size: 1rem;
-            border: none;
+            border: 1px solid #3e2723;
             cursor: pointer;
             width: 100%;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
-            transition: 0.3s;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
         }
 
         .glass-card:hover .action-btn {
-            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.7);
-            transform: scale(1.05);
+            background: #3e2723;
+            color: #ffffff;
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
         }
 
-        /* --- Development State Cards --- */
+        /* --- Development State Cards (Vintage Style) --- */
         .glass-card.dev-mode {
-            border-color: rgba(255, 0, 122, 0.3);
-        }
-
-        .glass-card.dev-mode:hover {
-            border-color: rgba(255, 0, 122, 0.8);
-            box-shadow: 0 20px 50px rgba(255, 0, 122, 0.2);
+            background: #f5ebe6;
+            border-color: #bcaaa4;
         }
 
         .glass-card.dev-mode .card-icon {
-            color: #ff007a;
-            filter: drop-shadow(0 0 15px rgba(255, 0, 122, 0.6));
+            color: #8d6e63;
         }
         
         .glass-card.dev-mode .card-title {
-            color: #ff007a;
+            color: #5d4037;
         }
 
         .glass-card.dev-mode .action-btn {
-            background: rgba(255, 0, 122, 0.2);
-            color: #ff007a;
-            border: 1px solid rgba(255, 0, 122, 0.5);
+            background: #d7ccc8;
+            color: #795548;
+            border: 1px solid #bcaaa4;
             box-shadow: none;
             cursor: not-allowed;
         }
 
-        /* --- FLOATING GLASS FOOTER --- */
+        /* --- VINTAGE FOOTER --- */
         .glass-footer {
-            width: calc(100% - 40px);
-            max-width: 1300px;
-            margin: 20px auto 30px;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 242, 254, 0.2);
-            border-radius: 20px;
+            width: 100%;
+            background: #eaddcf;
+            border-top: 3px double #8d6e63;
             padding: 20px 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.02);
             position: relative;
             z-index: 10;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .glass-footer:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 242, 254, 0.5);
-            box-shadow: 0 15px 40px rgba(0, 242, 254, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.05);
         }
 
         .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -318,17 +266,18 @@
         }
 
         .footer-brand img {
-            height: 45px;
-            filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.5));
+            height: 40px;
+            filter: sepia(1) contrast(1.2);
         }
 
         .footer-brand span {
-            color: #a0aec0;
-            font-size: 1rem;
+            color: #5d4037;
+            font-size: 0.95rem;
+            font-family: 'Playfair Display', serif;
         }
 
         .footer-brand strong {
-            color: #00f2fe;
+            color: #3e2723;
             letter-spacing: 1px;
         }
 
@@ -339,46 +288,30 @@
         }
 
         .visitor-badge {
-            filter: drop-shadow(0 0 12px rgba(85, 214, 255, 0.4));
+            filter: sepia(0.8) hue-rotate(-20deg) contrast(1.1);
             transition: transform 0.3s ease;
             cursor: pointer;
         }
 
         .visitor-badge:hover {
-            transform: scale(1.08);
+            transform: scale(1.05);
         }
 
-        /* Responsive Mobile Design */
+        /* =========================================
+           --- RESPONSIVE MOBILE DESIGN ---
+           ========================================= */
+
         @media (max-width: 1100px) {
-            .app-grid { 
-                grid-template-columns: repeat(2, 1fr); 
-            }
-            .glass-card { 
-                aspect-ratio: auto; 
-                min-height: 400px; 
-            }
+            .app-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
             .header { margin-bottom: 40px; }
-            .main-heading { 
-                font-size: 2.2rem; 
-                margin-bottom: 20px; 
-            }
-            .intro-text { 
-                font-size: 1.2rem; 
-                padding: 12px 30px; 
-            }
-            .app-grid { 
-                grid-template-columns: 1fr; 
-                gap: 25px; 
-                margin-top: 30px; 
-            }
-            .glass-card { 
-                min-height: auto; 
-                padding: 30px 20px; 
-            }
-            .card-icon { font-size: 3.5rem; margin-bottom: 15px; }
+            .main-heading { font-size: 2.5rem; }
+            .intro-text { font-size: 1.1rem; padding: 8px 20px; }
+            .app-grid { grid-template-columns: 1fr; gap: 30px; margin-top: 20px; }
+            .glass-card { min-height: auto; padding: 30px 20px; }
+            .card-icon { font-size: 3rem; margin-bottom: 15px; }
             .card-title { font-size: 1.4rem; }
             
             .footer-inner {
@@ -394,49 +327,28 @@
 
         @media (max-width: 480px) {
             .container { padding: 20px 15px; }
-            .main-heading { 
-                font-size: 1.8rem; 
-                letter-spacing: 1px;
-            }
-            .intro-text {
-                font-size: 1.1rem;
-                padding: 10px 25px;
-                letter-spacing: 1px;
-            }
+            .main-heading { font-size: 2rem; }
+            .intro-text { font-size: 1rem; padding: 8px 15px; }
             .app-grid { gap: 20px; }
-            .glass-card {
-                padding: 25px 15px;
-                border-radius: 20px;
-            }
-            .card-logo { height: 60px; }
-            .card-icon { font-size: 3rem; }
-            .card-title { font-size: 1.3rem; }
+            .glass-card { padding: 25px 15px; }
+            .card-logo { height: 50px; }
+            .card-icon { font-size: 2.5rem; }
+            .card-title { font-size: 1.2rem; }
             .card-desc { font-size: 0.9rem; }
-            .action-btn {
-                padding: 12px 20px;
-                font-size: 0.9rem;
-            }
-            .glass-footer {
-                padding: 15px;
-                border-radius: 15px;
-            }
-            .footer-brand img { height: 35px; }
-            .footer-brand span { font-size: 0.9rem; }
+            .action-btn { padding: 10px 15px; font-size: 0.9rem; }
+            .glass-footer { padding: 15px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Animated Tech Network Background -->
-    <canvas id="lab-bg"></canvas>
-
+    <!-- Main Layout -->
     <div class="container">
         
         <!-- Header & Introduction -->
         <header class="header">
             <h1 class="main-heading">Popular Software</h1>
             
-            <!-- Centered 3D Crystal Blinking Text -->
             <div>
                 <p class="intro-text">
                     Download & Install Required Applications
@@ -444,7 +356,7 @@
             </div>
         </header>
 
-        <!-- Glassmorphism Grid -->
+        <!-- Antique Grid -->
         <main class="app-grid">
 
             <!-- Software 1: Adobe Photoshop -->
@@ -459,7 +371,7 @@
 
             <!-- Software 2: Corel Draw -->
             <a href="#" class="glass-card">
-                <i class="fas fa-pen-nib card-icon" style="color: #00d2ff;"></i>
+                <i class="fas fa-pen-nib card-icon"></i>
                 <h2 class="card-title">Corel Draw</h2>
                 <p class="card-desc">
                     Advanced vector graphics editor for layout design and illustration projects.
@@ -469,7 +381,7 @@
 
             <!-- Software 3: Adobe PageMaker -->
             <a href="#" class="glass-card">
-                <i class="fas fa-file-invoice card-icon" style="color: #ff3366;"></i>
+                <i class="fas fa-file-invoice card-icon"></i>
                 <h2 class="card-title">Adobe PageMaker</h2>
                 <p class="card-desc">
                     Desktop publishing software specialized for creating brochures, flyers, and document layouts.
@@ -479,7 +391,7 @@
 
             <!-- Software 4: SRV Bangla Keyboard -->
             <a href="#" class="glass-card">
-                <i class="fas fa-keyboard card-icon" style="color: #00f2fe;"></i>
+                <i class="fas fa-keyboard card-icon"></i>
                 <h2 class="card-title">SRV Bangla Keyboard</h2>
                 <p class="card-desc">
                     Standard Bengali typing software to seamlessly integrate custom Bengali DTP work.
@@ -489,7 +401,7 @@
             
             <!-- Software 5: Corel 50 -->
             <a href="#" class="glass-card">
-                <i class="fas fa-bezier-curve card-icon" style="color: #4facfe;"></i>
+                <i class="fas fa-bezier-curve card-icon"></i>
                 <h2 class="card-title">Corel 50</h2>
                 <p class="card-desc">
                     Essential graphics utility suite featuring enhanced performance for rendering and layout tasks.
@@ -518,19 +430,19 @@
             </a>
 
             <!-- Software 8: Demo 3 -->
-            <a href="#" class="glass-card">
+            <a href="#" class="glass-card dev-mode">
                 <i class="fas fa-cube card-icon"></i>
                 <h2 class="card-title">Demo Software 3</h2>
                 <p class="card-desc">
-                    Placeholder software slot. Click below to download or view the software configuration details.
+                    Currently under maintenance. Software configuration details will be available soon.
                 </p>
-                <button class="action-btn">Download <i class="fas fa-download"></i></button>
+                <button class="action-btn"><i class="fas fa-lock"></i> Locked</button>
             </a>
 
         </main>
     </div>
 
-    <!-- Floating Glass Footer -->
+    <!-- Vintage Footer -->
     <footer class="glass-footer">
         <div class="footer-inner">
             <div class="footer-brand">
@@ -540,7 +452,7 @@
             
             <div class="visitor-box">
                 <img class="visitor-badge" 
-                     src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fwww.shmwb.in&label=SITE%20VISITORS&labelColor=%232d3748&countColor=%2355d6ff" 
+                     src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fwww.shmwb.in&label=SITE%20VISITORS&labelColor=%235d4037&countColor=%238d6e63" 
                      alt="Site Visitors">
             </div>
         </div>
@@ -548,117 +460,33 @@
 
     <!-- Background Animation Logic -->
     <script>
-        const canvas = document.getElementById('lab-bg');
-        const ctx = canvas.getContext('2d');
-        
-        let particles = [];
-        
-        // Background Floating Words: only Popular Software
-        const labWords = [
-            "Popular Software"
-        ];
+        const labWords = ["Popular Software"];
 
-        function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resize);
-        resize();
-
-        // Node Network Logic
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.radius = Math.random() * 2 + 1;
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 242, 254, 0.5)';
-                ctx.fill();
-            }
-        }
-
-        // Reduce particles slightly on mobile devices for better performance
-        const particleCount = window.innerWidth < 768 ? 40 : 80;
-        
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-
-        function animateNodes() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Draw particles and connect lines
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-                
-                for (let j = i; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (distance < 120) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(0, 242, 254, ${0.2 - distance/600})`;
-                        ctx.lineWidth = 1;
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-            requestAnimationFrame(animateNodes);
-        }
-        animateNodes();
-
-        // Floating Tech Terms Logic
         function spawnTechWord() {
-            // Prevent too many words cluttering mobile screens
             if(window.innerWidth < 768 && Math.random() > 0.5) return; 
 
             const word = document.createElement('div');
             word.classList.add('floating-tech-word');
-            word.innerText = labWords[Math.floor(Math.random() * labWords.length)];
+            word.innerText = labWords[0];
             
-            // Random positioning
-            word.style.left = Math.random() * 90 + 'vw';
+            word.style.left = Math.random() * 80 + 'vw';
             
-            // Varied font sizes for depth (smaller on mobile)
-            const baseSize = window.innerWidth < 768 ? 0.8 : 1;
-            word.style.fontSize = (Math.random() * (1.5 * baseSize) + baseSize) + 'rem';
+            const baseSize = window.innerWidth < 768 ? 1.5 : 2.5;
+            word.style.fontSize = (Math.random() * (1 * baseSize) + baseSize) + 'rem';
             
-            // Random opacity for depth
-            word.style.color = `rgba(0, 242, 254, ${Math.random() * 0.15 + 0.05})`;
-            
-            // Varied speed
-            const duration = Math.random() * 15 + 15; // 15 to 30 seconds
+            const duration = Math.random() * 20 + 20; 
             word.style.animationDuration = duration + 's';
             
             document.body.appendChild(word);
 
-            // Cleanup DOM
             setTimeout(() => {
                 word.remove();
             }, duration * 1000);
         }
 
-        // Spawn words over time
-        setInterval(spawnTechWord, 2000);
+        setInterval(spawnTechWord, 3000);
         
-        // Initial spawn
-        for(let i=0; i< (window.innerWidth < 768 ? 5 : 10); i++) {
+        for(let i=0; i< (window.innerWidth < 768 ? 3 : 6); i++) {
             setTimeout(spawnTechWord, Math.random() * 5000);
         }
     </script>
