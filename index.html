@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Popular Software </title>
-    
+    <title>Popular Software | SHM Digital Hub</title>
+
     <!-- Google Fonts for English and Bengali (Vintage Theme) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;600&family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- আপনার CSS ফাইল এখানে লিংক করা হলো -->
+    <link rel="stylesheet" href="/style.css">
 
+    <!-- Styles from the Software Page -->
     <style>
         /* --- Reset & Global Styles --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             /* Antique Parchment Background */
             background-color: #f4ecd8;
@@ -35,6 +33,8 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            margin: 0;
+            padding: 0;
         }
 
         /* --- Antique Floating Words Animation --- */
@@ -69,12 +69,22 @@
             width: 100%;
         }
 
-        /* --- Header Section --- */
+        /* --- Header Section (Glassmorphism Fix) --- */
         .header {
             text-align: center;
             margin-bottom: 60px;
             margin-top: 20px;
             position: relative;
+            padding: 40px 20px;
+            
+            /* Glassmorphism Effect */
+            background: rgba(251, 247, 237, 0.6) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(94, 64, 55, 0.1);
+            z-index: 10;
         }
 
         .header::after {
@@ -93,9 +103,9 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: #3e2723;
+            color: #3e2723 !important;
             margin-bottom: 25px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
         }
 
         /* --- Antique Intro Ribbon --- */
@@ -105,7 +115,7 @@
             font-weight: 600;
             font-style: italic;
             letter-spacing: 1px;
-            color: #4e342e;
+            color: #4e342e !important;
             display: inline-block;
             padding: 10px 30px;
             border-top: 2px solid #5d4037;
@@ -161,15 +171,6 @@
         .glass-card:hover::before { top: 5px; left: 5px; }
         .glass-card:hover::after { bottom: 5px; right: 5px; }
 
-        .card-logo {
-            height: 70px;
-            max-width: 100%;
-            object-fit: contain;
-            margin-bottom: 20px;
-            /* Sepia tone filter for images to match theme */
-            filter: sepia(0.6) hue-rotate(-15deg) contrast(1.1) brightness(0.9);
-        }
-
         .card-icon {
             font-size: 3.5rem;
             color: #795548;
@@ -217,138 +218,48 @@
             box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
         }
 
-        /* --- Development State Cards (Vintage Style) --- */
-        .glass-card.dev-mode {
-            background: #f5ebe6;
-            border-color: #bcaaa4;
-        }
-
-        .glass-card.dev-mode .card-icon {
-            color: #8d6e63;
-        }
-        
-        .glass-card.dev-mode .card-title {
-            color: #5d4037;
-        }
-
-        .glass-card.dev-mode .action-btn {
-            background: #d7ccc8;
-            color: #795548;
-            border: 1px solid #bcaaa4;
-            box-shadow: none;
-            cursor: not-allowed;
-        }
-
-        /* --- VINTAGE FOOTER --- */
-        .glass-footer {
-            width: 100%;
-            background: #eaddcf;
-            border-top: 3px double #8d6e63;
-            padding: 20px 30px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .footer-brand img {
-            height: 40px;
-            filter: sepia(1) contrast(1.2);
-        }
-
-        .footer-brand span {
-            color: #5d4037;
-            font-size: 0.95rem;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .footer-brand strong {
-            color: #3e2723;
-            letter-spacing: 1px;
-        }
-
-        .visitor-box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .visitor-badge {
-            filter: sepia(0.8) hue-rotate(-20deg) contrast(1.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .visitor-badge:hover {
-            transform: scale(1.05);
-        }
-
         /* =========================================
            --- RESPONSIVE MOBILE DESIGN ---
            ========================================= */
-
         @media (max-width: 1100px) {
             .app-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
-            .header { margin-bottom: 40px; }
+            .header { margin-bottom: 40px; padding: 30px 15px; }
             .main-heading { font-size: 2.5rem; }
             .intro-text { font-size: 1.1rem; padding: 8px 20px; }
             .app-grid { grid-template-columns: 1fr; gap: 30px; margin-top: 20px; }
             .glass-card { min-height: auto; padding: 30px 20px; }
             .card-icon { font-size: 3rem; margin-bottom: 15px; }
             .card-title { font-size: 1.4rem; }
-            
-            .footer-inner {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-            .footer-brand {
-                flex-direction: column;
-                gap: 10px;
-            }
         }
 
         @media (max-width: 480px) {
             .container { padding: 20px 15px; }
+            .header { padding: 25px 10px; }
             .main-heading { font-size: 2rem; }
             .intro-text { font-size: 1rem; padding: 8px 15px; }
             .app-grid { gap: 20px; }
             .glass-card { padding: 25px 15px; }
-            .card-logo { height: 50px; }
             .card-icon { font-size: 2.5rem; }
             .card-title { font-size: 1.2rem; }
             .card-desc { font-size: 0.9rem; }
             .action-btn { padding: 10px 15px; font-size: 0.9rem; }
-            .glass-footer { padding: 15px; }
         }
     </style>
 </head>
-<body>
 
-    <!-- Main Layout -->
-    <div class="container">
+<body>
+    <!-- এই div-এর ভেতরে মেনু অটোমেটিক চলে আসবে -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="container">
         
-        <!-- Header & Introduction -->
+        <!-- Header & Introduction (Updated with Glassmorphism) -->
         <header class="header">
             <h1 class="main-heading">Popular Software</h1>
-            
             <div>
                 <p class="intro-text">
                     Download & Install Required Applications
@@ -357,105 +268,105 @@
         </header>
 
         <!-- Antique Grid -->
-        <main class="app-grid">
-
-            <!-- Software 1: Adobe Photoshop -->
+        <div class="app-grid">
+            <!-- Software 1: Demo 1 -->
             <a href="#" class="glass-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Adobe Photoshop Logo" class="card-logo">
-                <h2 class="card-title">Adobe Photoshop</h2>
+                <i class="fas fa-keyboard card-icon"></i>
+                <h2 class="card-title">Demo 1</h2>
                 <p class="card-desc">
-                    Professional image editing, graphic design, and digital art software.
+                    Placeholder software slot. Click below to download or view the software configuration details.
                 </p>
                 <button class="action-btn">Download <i class="fas fa-download"></i></button>
             </a>
 
-            <!-- Software 2: Corel Draw -->
+            <!-- Software 2: Demo 2 -->
+            <a href="#" class="glass-card">
+                <i class="fas fa-image card-icon"></i>
+                <h2 class="card-title">Demo 2</h2>
+                <p class="card-desc">
+                    Placeholder software slot. Click below to download or view the software configuration details.
+                </p>
+                <button class="action-btn">Download <i class="fas fa-download"></i></button>
+            </a>
+
+            <!-- Software 3: Demo 3 -->
+            <a href="#" class="glass-card">
+                <i class="fas fa-newspaper card-icon"></i>
+                <h2 class="card-title">Demo 3</h2>
+                <p class="card-desc">
+                    Placeholder software slot. Click below to download or view the software configuration details.
+                </p>
+                <button class="action-btn">Download <i class="fas fa-download"></i></button>
+            </a>
+
+            <!-- Software 4: Demo 4 -->
             <a href="#" class="glass-card">
                 <i class="fas fa-pen-nib card-icon"></i>
-                <h2 class="card-title">Corel Draw</h2>
+                <h2 class="card-title">Demo 4</h2>
                 <p class="card-desc">
-                    Advanced vector graphics editor for layout design and illustration projects.
-                </p>
-                <button class="action-btn">Download <i class="fas fa-download"></i></button>
-            </a>
-
-            <!-- Software 3: Adobe PageMaker -->
-            <a href="#" class="glass-card">
-                <i class="fas fa-file-invoice card-icon"></i>
-                <h2 class="card-title">Adobe PageMaker</h2>
-                <p class="card-desc">
-                    Desktop publishing software specialized for creating brochures, flyers, and document layouts.
-                </p>
-                <button class="action-btn">Download <i class="fas fa-download"></i></button>
-            </a>
-
-            <!-- Software 4: SRV Bangla Keyboard -->
-            <a href="https://github.com/shmwbin/assets/releases/download/PopularSoftware/SRV.Bangla.zip" class="glass-card">
-                <i class="fas fa-keyboard card-icon"></i>
-                <h2 class="card-title">SRV Bangla Keyboard</h2>
-                <p class="card-desc">
-                    Standard Bengali typing software to seamlessly integrate custom Bengali DTP work.
+                    Placeholder software slot. Click below to download or view the software configuration details.
                 </p>
                 <button class="action-btn">Download <i class="fas fa-download"></i></button>
             </a>
             
-            <!-- Software 5: Corel 50 -->
+            <!-- Software 5: Demo 5 -->
             <a href="#" class="glass-card">
-                <i class="fas fa-bezier-curve card-icon"></i>
-                <h2 class="card-title">Corel 50</h2>
-                <p class="card-desc">
-                    Essential graphics utility suite featuring enhanced performance for rendering and layout tasks.
-                </p>
-                <button class="action-btn">Download <i class="fas fa-download"></i></button>
-            </a>
-
-            <!-- Software 6: Demo 1 -->
-            <a href="#" class="glass-card">
-                <i class="fas fa-box-open card-icon"></i>
-                <h2 class="card-title">Demo Software 1</h2>
+                <i class="fab fa-microsoft card-icon"></i>
+                <h2 class="card-title">Demo 5</h2>
                 <p class="card-desc">
                     Placeholder software slot. Click below to download or view the software configuration details.
                 </p>
                 <button class="action-btn">Download <i class="fas fa-download"></i></button>
             </a>
 
-            <!-- Software 7: Demo 2 -->
+            <!-- Software 6: Demo 6 -->
+            <a href="#" class="glass-card">
+                <i class="fab fa-microsoft card-icon"></i>
+                <h2 class="card-title">Demo 6</h2>
+                <p class="card-desc">
+                    Placeholder software slot. Click below to download or view the software configuration details.
+                </p>
+                <button class="action-btn">Download <i class="fas fa-download"></i></button>
+            </a>
+
+            <!-- Software 7: Demo 7 -->
+            <a href="#" class="glass-card">
+                <i class="fas fa-shapes card-icon"></i>
+                <h2 class="card-title">Demo 7</h2>
+                <p class="card-desc">
+                    Placeholder software slot. Click below to download or view the software configuration details.
+                </p>
+                <button class="action-btn">Download <i class="fas fa-download"></i></button>
+            </a>
+
+            <!-- Software 8: Demo 8 -->
+            <a href="#" class="glass-card">
+                <i class="fas fa-keyboard card-icon"></i>
+                <h2 class="card-title">Demo 8</h2>
+                <p class="card-desc">
+                    Placeholder software slot. Click below to download or view the software configuration details.
+                </p>
+                <button class="action-btn">Download <i class="fas fa-download"></i></button>
+            </a>
+
+            <!-- Software 9: Demo 9 -->
             <a href="#" class="glass-card">
                 <i class="fas fa-layer-group card-icon"></i>
-                <h2 class="card-title">Demo Software 2</h2>
+                <h2 class="card-title">Demo 9</h2>
                 <p class="card-desc">
                     Placeholder software slot. Click below to download or view the software configuration details.
                 </p>
                 <button class="action-btn">Download <i class="fas fa-download"></i></button>
             </a>
-
-            <!-- Software 8: Demo 3 -->
-            <a href="#" class="glass-card dev-mode">
-                <i class="fas fa-cube card-icon"></i>
-                <h2 class="card-title">Demo Software 3</h2>
-                <p class="card-desc">
-                    Currently under maintenance. Software configuration details will be available soon.
-                </p>
-                <button class="action-btn"><i class="fas fa-lock"></i> Locked</button>
-            </a>
-
-        </main>
-    </div>
-
-    <!-- Vintage Footer -->
-    <footer class="glass-footer">
-        <div class="footer-inner">
-            <div class="footer-brand">
-                
-            </div>
-            
-            <div class="visitor-box">
-                <img class="visitor-badge" 
-                     src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fwww.shmwb.in&label=SITE%20VISITORS&labelColor=%235d4037&countColor=%238d6e63" 
-                     alt="Site Visitors">
-            </div>
         </div>
-    </footer>
+    </main>
+
+    <!-- এই div-এর ভেতরে ফুটার অটোমেটিক চলে আসবে -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JS ফাইলগুলো লিংক করুন -->
+    <script src="/header.js"></script>
+    <script src="/footer.js"></script>
 
     <!-- Background Animation Logic -->
     <script>
